@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mortgage calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" integrity="sha512-ttHne44lbbucAUVjyStgbDTTqvNVQdIGN9gqZeai69i4OXSDNjlBd1tyCVXI/a/DqITpj9gXi84dcyG2vz4jhw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <link rel="stylesheet" href="land.css">
+
+
+</head>
+
+
+
+  <body>
+
+
+    <!-- navigation bar  -->
+    <div class="nav-barr">
+        <nav>
+            <button class="mortgage" onclick="window.location.href = 'index.html';">Mortgage Calculator</button>
+            <button  class="purchase" onclick="window.location.href = 'purchase.html';"  >Purchase Calculator</button>
+            <button class="closing">Closing Costs</button>
+            <button class="land" >Land Transfer</button>
+        </nav>
+        <hr>
+    </div>
+
+
+    <!-- main body section  -->
+    <section id="main">
+
+
+        <!-- left side of body on desktop  -->
+        <section id="lside" >
+            <h1 class="mhead">Land Transfer</h1>
+
+            <!-- first row of mortgage calculator left side  -->
+            <div class="grid">
+
+                <div>
+                    <div class="form-floati">
+                        <input type="text" placeholder="Toronto, ON" class="form-control1 test" id="floatingInputGrid" value="TORONTO, ON"  >
+                        <label  class="mlabel locate">Location</label>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="form-floati">
+                        <input type="text"  class="form-control1 test" id="land-price"  value="5000" onblur="blurLinput()" onfocus="focusLinput()" >
+                        <label  class="mabel">Home Price</label>
+                    </div>
+                    <span class="dollar">$</span>
+                    <input type="range" class="range" id="land-range" value="6000" step="5000" min="0" onchange="changeLprice();" max="10000000">
+                   
+                </div>                
+
+            </div>
+
+            <!-- first row of mortgage calculator left side  -->
+           
+                
+  
+
+            
+
+
+        </section>
+
+    
+        <!-- right side of body of desktop  -->
+        <section id="rside">
+
+            <span id="fa-globe">EN<i class="fa-solid fa-globe" ></i></span>
+
+            <div id="main-right">
+                <!-- first row of right hand side mortgage calculator  -->
+                <div class="r-frow">
+
+                    <!-- calculation result section   -->
+                    <p class="mpay">Land Transfer</p>
+                    <h2 id="lresult"><span>$</span>0.00</h2>
+
+                    <div class="b-row">
+                        <p><span class="dot"></span>Location</p>
+                        <span >Toronto</span>
+                    </div>
+                    <hr class="dotted-line">
+
+                    <div class="b-row">
+                        <p><span class="dot"></span>Provincial</p>
+                        <span class="p-paidd" id="provincial">+ $6,475</span>
+                    </div>
+
+                    
+
+                    <div class="b-row">
+                        <p><span class="dot"></span>Municipal</p>
+                        <span class="p-paidd" id="municipal">+ $6,475</span>
+                    </div>
+
+                    <div class="b-row">
+                        <p><span class="dot"></span>Total Rebate</p>
+                        <span class="p-paidd" id="rebate">- $0</span>
+                    </div>
+                    
+
+                    
+                </div>
+
+
+
+
+                    
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script src="land.js" defer>
+        
+    </script>
+</body>
+</html>

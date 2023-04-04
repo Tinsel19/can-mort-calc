@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mortgage calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" integrity="sha512-ttHne44lbbucAUVjyStgbDTTqvNVQdIGN9gqZeai69i4OXSDNjlBd1tyCVXI/a/DqITpj9gXi84dcyG2vz4jhw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+
+
+  <body>
+
+
+    <!-- navigation bar  -->
+    <div class="nav-barr">
+        <nav>
+            <button class="mortgage">Mortgage Calculator</button>
+            <button class="purchase" onclick="window.location.href = 'purchase.html';">Purchase Calculator</button>
+            <button class="closing">Closing Costs</button>
+            <button class="land" onclick="window.location.href = 'land.html';">Land Transfer</button>
+        </nav>
+        <hr>
+    </div>
+
+
+    <!-- main body section  -->
+    <section id="main">
+
+
+        <!-- left side of body on desktop  -->
+        <section id="lside" >
+            <h1 class="mhead">Mortgage Calculator</h1>
+
+            <!-- first row of mortgage calculator left side  -->
+            <div class="grid">
+
+                <!-- mortgage amount input  -->
+                <div>
+                    <div class="form-floati">
+                        <input type="text"  class="form-control1 test" id="floatingInputGrid" onblur="setTimeout(blurInput, 10)" value="5000"  onfocus="setTimeout(focusInput, 5)" >
+                        <label  class="mlabel">Mortgage Amount</label>
+                    </div>
+                    <span class="dollar">$</span>
+                    <input type="range" class="range" id="range1" step="5000" min="0" onchange="changeMortgage();" max="1000000">
+                   
+                </div>
+                
+
+                <div class="col-md">
+                    <div class="form-floating">
+                    <select class="form-select" id="floatingSelectGrid">
+                        <option class="mselect" selected>Monthly</option>
+                        <option class="mselect" value="1">Bi-Weekly</option>
+                        <option class="mselect" value="2">Acc. bi-Weekly</option>
+                        <option class="mselect" value="3">Weekly</option>
+                        <option class="mselect" value="3">Acc. Weekly</option>
+                        <option class="mselect" value="3">Semi-Monthly</option>
+                    </select>
+                    <label for="floatingSelectGrid" class="mlabel">Payment Frequency</label>
+                    </div>
+            </div>
+                
+
+            </div>
+
+            <!-- dotted line seperating first row from second  -->
+            <hr class="dotted-line">
+
+            <!-- second row on the left side  -->
+            <div class="srow">
+                <p class="ratet"><i class="fa-solid fa-medal"></i>Rate</p>
+                <p class="lparagraph">Your mortgage interest rate can either be Fixed for the term or Variable (which changes with the prime rate). The Rate Term is the contract length with a lender.</p>
+            </div>
+
+            <div class="grid">
+
+                <!-- rate amount input  -->
+                <div>
+                    <div class="form-floati">
+                        <input type="text"  class="form-control1" id="percent" value="1"  step=".1" max="8" min="0" onblur="changePr()" >
+                        <label  class="mlabel">Rate</label>
+                    </div>
+                    <span class="percent">%</span>
+                    <input type="range" class="range" id="percentR"  min="0" step=".10" onchange="changePercent();" max="8">
+                    
+                    <div class="rbtn-layout">
+                        <button class="rfixed"> Fixed</button>
+                        <button class="rvar"> VARIABLE</button>
+                    </div>
+                </div>
+                
+
+                <div class="col-md">
+                    <div class="form-floating">
+                    <select class="form-select" id="floatingSelectGrid">
+                        <option style="font-weight: bold;" class="mselect" selected>1 year</option>
+                        <option style="font-weight: bold;" class="mselect" value="1">2 years</option>
+                        <option class="mselect" value="2">3 years</option>
+                        <option class="mselect" value="3">4 years</option>
+                        <option class="mselect" value="3">5 years</option>
+                        <option class="mselect" value="3">6 years</option>
+                        <option class="mselect" value="3">7 years</option>
+                        <option class="mselect" value="3">10 years</option>
+                    </select>
+                    <label for="floatingSelectGrid" class="mlabel">Rate Term</label>
+                    </div>
+            </div>
+                
+
+            </div>
+
+            <!-- dotted line seperating second row from third  -->
+            <hr class="dotted-line">    
+
+            <!-- !-- third row on the left side  -->
+            <div class="srow">
+                <div class="s-grid">
+                    <p class="ratet"><i class="fa-solid fa-calendar-days"></i>Amortization</p>
+                    <button class="g-pop">View schedule</button>
+                </div>
+                
+                <p class="lparagraph">Amortization is the total time it takes to pay off your mortgage in full. New mortgages usually start with an amortization of 25 years or 30 years in Canada.</p>
+            </div>
+
+            <div class="form-floating">
+                <div class="grid-input">
+
+                    <div class="half-input">
+                        <input type="number"  class="form-control1 half-inputl" id="amon" value="35"  step="1" max="200" min="0" onblur="changeAr()" >    
+                        <span class="year">years</span>
+                    </div>
+                    
+                    <div class="half-input">
+                        <input type="number"  class="form-control1 half-inputr" id="monthly" value="1"  step="1" max="12" min="0" onblur="changeAm()"  >
+                        <span class="month">months</span>
+                    </div>
+                    
+                    <label  class="mlabela">Amortization</label>
+                    
+
+                </div>
+                
+                <!-- <label for="floatingInputGrid" class="mlabel">Amortization</label> -->
+            </div>
+            <input type="range" class="range" id="amonr" step="1" value="50" min="0" max="50" onchange="changeAi()">
+
+            
+
+
+        </section>
+
+
+        <!-- right side of body of desktop  -->
+        <section id="rside" >
+
+            <span id="fa-globe">EN<i class="fa-solid fa-globe" ></i></span>
+
+            <div id="main-right">
+                <!-- first row of right hand side mortgage calculator  -->
+                <div class="r-frow">
+
+                    <!-- calculation result section   -->
+                    <p class="mpay">Mortgage Payment </p>
+                    <h2 id="mresult"><span>$</span>8,892</h2>
+                    <span id="tilt">Monthly</span>
+
+                    <div class="ptt">
+                         <button class="ptt-btn ptt-b">Payment</button>
+                        <button  class="ptt-btn">Term</button>
+                        <button class="ptt-btn ">Total</button>
+                    </div>
+
+                </div>
+
+                <div class="r-srow">
+                    <h2 class="r-h2">Payment breakdown</h2>
+
+                    <div class="b-row">
+                        <p><span class="dot"></span> Principal Paid</p>
+                        <span class="p-paid">$</span>
+                    </div>
+
+                    <div class="b-row">
+                        <p><span class="dot"></span> Interest Paid</p>
+                        <span class="i-paid">$</span>
+                    </div>
+
+                    <hr class="dotted-line">
+
+                    <div class="b-row">
+                        <p>Total payment</p>
+                        <span class="t-payment">$</span>
+                    </div>
+
+                    <hr class="dotted-line">
+
+                    <div class="b-row">
+                        <p>Balance end of term</p>
+                        <span class="beot"></span>
+                    </div>
+                    
+                    <div class="b-row">
+                        <p>Effective Amortization</p>
+                        <span class="ea-years"></span>
+                    </div>
+
+
+                    
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <section>
+
+        <div class="container-g">
+            <canvas id="ctx"> </canvas>
+
+        </div>
+    </section>
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script src="index.js" defer>
+        
+    </script>
+</body>
+</html>
